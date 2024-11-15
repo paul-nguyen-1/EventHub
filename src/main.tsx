@@ -4,9 +4,17 @@ import { RouterProvider } from "react-router-dom";
 import { router } from "./components/router/routes";
 import "./styles/global.css";
 import "normalize.css";
+import "@mantine/core/styles.css";
+import { createTheme, MantineProvider } from "@mantine/core";
+
+const theme = createTheme({
+
+});
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  <MantineProvider theme={theme} defaultColorScheme="dark">
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </MantineProvider>,
 );

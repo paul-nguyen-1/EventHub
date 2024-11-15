@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+// https://ui.mantine.dev/category/headers/# -- implement header with mega menu, add search and get user icon and tab when i set up AWS Cognito
+
 export const Navbar = () => {
   const [heightState, setHeightState] = useState("pageTop");
 
