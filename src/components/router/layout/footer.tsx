@@ -5,7 +5,7 @@ import {
   IconBrandInstagram,
 } from "@tabler/icons-react";
 import { MantineLogo } from "@mantinex/mantine-logo";
-import classes from "./footer.module.css";
+import classes from "./styles/footer.module.css";
 
 const links = [
   { link: "#", label: "Contact" },
