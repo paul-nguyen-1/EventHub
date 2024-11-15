@@ -1,4 +1,3 @@
-import "../../index.css";
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "./layout.tsx";
 import { Home } from "../pages/home.tsx";
