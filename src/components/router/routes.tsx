@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Layout } from "./layout.tsx";
+import { Layout } from "./layout/layout.tsx";
 import { Home } from "../pages/home.tsx";
 import { ErrorBoundary } from "../pages/errorBoundary.tsx";
 
