@@ -137,8 +137,6 @@ export function Navbar() {
           </Group>
         </ScrollArea>
       </Drawer>
-      <div className="each h-screen"></div>
-      <div className="each h-screen"></div>
     </Box>
   );
 }
