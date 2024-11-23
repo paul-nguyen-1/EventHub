@@ -82,3 +82,21 @@ export const useDebounce = <T,>(value: T, delay: number): T => {
 
   return useMemo(() => debouncedValue, [debouncedValue]);
 };
+
+export const formatTime = (date: Date) => {
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+  const period = hours >= 12 ? "PM" : "AM";
+
+  hours = hours % 12 || 12;
+  const formattedMinutes = minutes.toString().padStart(2, "0");
+
+  return `${hours}:${formattedMinutes} ${period}`;
+};
+
+export const formatDate = (date: Date) => {
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const year = date.getFullYear() % 100;
+  return `${month}/${day}/${year}`;
+};
