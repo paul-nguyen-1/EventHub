@@ -1,31 +1,44 @@
 import { Paper, Text, Title, Button } from "@mantine/core";
 import classes from "./card.module.css";
+import { Image } from "../../const/interface";
 
-interface CardProps {
-  image: string;
-  title: string;
-  category: string;
+export interface CardProps {
+  id: string;
+  images: Image[];
+  date: string;
+  name: string;
+  url: string;
 }
 
-export function Card({ image, title, category }: CardProps) {
+export function Card(props: CardProps) {
+  const { images, name, url } = props;
+
+  console.log(props);
   return (
     <Paper
       shadow="md"
       p="xl"
       radius="md"
-      style={{ backgroundImage: `url(${image})` }}
+      style={{ backgroundImage: `url(${images[0].url})` }}
       className={classes.card}
     >
       <div>
         <Text className={classes.category} size="xs">
-          {category}
+          test
         </Text>
         <Title order={3} className={classes.title}>
-          {title}
+          {name}
         </Title>
       </div>
-      <Button variant="white" color="dark">
-        Read article
+      <Button
+        component="a"
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="white"
+        color="dark"
+      >
+        Ticket
       </Button>
     </Paper>
   );
