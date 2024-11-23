@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Group,
   Button,
@@ -39,20 +39,25 @@ export function Navbar() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const [heightState, setHeightState] = useState("pageTop");
+  const navbarRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    let lastVal = 0;
+    const navbarHeight = navbarRef.current?.offsetHeight || 0;
+    let lastScrollY = 0;
+
     const handleScroll = () => {
-      const y = window.scrollY;
-      if (y > lastVal) {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > navbarHeight && currentScrollY > lastScrollY) {
         setHeightState("scrollDown");
-      } else if (y < lastVal) {
+      } else if (
+        currentScrollY <= navbarHeight ||
+        currentScrollY < lastScrollY
+      ) {
         setHeightState("scrollUp");
       }
-      if (y === 0) {
-        setHeightState("pageTop");
-      }
-      lastVal = y;
+
+      lastScrollY = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -63,8 +68,9 @@ export function Navbar() {
   }, []);
 
   return (
-    <Box pb={120}>
+    <Box pb={120} style={{ position: "relative", zIndex: 999999 }}>
       <header
+        ref={navbarRef}
         className={`${classes.header} fixed w-full transition-transform duration-700 ease-in-out ${
           heightState === "scrollDown" ? "-translate-y-full" : "translate-y-0"
         }`}
