@@ -3,3 +3,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --carousel-height: 450px;
+  --carousel-width: 350px;
+}
+
+.verticalCarousel {
+  position: "relative";
+  height: var(--carousel-height);
+  width: var(--carousel-width);
+  transform: perspective(1200px) rotate(9deg) rotateX(12deg) rotateY(-30deg);
+}
