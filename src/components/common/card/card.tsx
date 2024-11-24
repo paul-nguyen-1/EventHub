@@ -1,5 +1,5 @@
 import { Paper, Text, Title, Button } from "@mantine/core";
-import classes from "./card.module.css";
+import classes from "../../../styles/card.module.css";
 import { Image, TicketStartData } from "../../const/interface";
 import { formatDate, formatTime } from "../util";
 
