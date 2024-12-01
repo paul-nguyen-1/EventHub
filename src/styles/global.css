@@ -13,5 +13,8 @@
   position: "relative";
   height: var(--carousel-height);
   width: var(--carousel-width);
-  transform: perspective(1200px) rotate(9deg) rotateX(12deg) rotateY(-30deg);
+  transform: perspective(1200px) rotate(6deg) rotateX(2deg) rotateY(-30deg);
+  border-radius: 15px;
+  padding: 10px;
+  overflow: hidden;
 }
